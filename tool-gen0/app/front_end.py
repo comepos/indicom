@@ -5,7 +5,7 @@ matplotlib.use('TkAgg')
 
 from back_end import *
 
-print('front_end V3')
+
 class ProjectDataBase():
 
     def __init__(self, projectName, projectLocation):
@@ -49,6 +49,7 @@ class ProjectDataBase():
                                                                          variableName_in_db, CSVName)
             self.id_in_db.append(idindb)
             self.name_in_db.append(nameindb)
+
 
 class NormalizedIndicatorComputationAndPloting():
     """

@@ -14,10 +14,11 @@ import time
 import tkinter as tk
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-from webServiceClientVestaForPosA import WebServiceClient
+from webServiceClientVesta import WebServiceClient
 import pandas as pds
 from math import *
 import calendar
+
 
 def filter_outliersV0(variable_id: int, values: list):
     differences = list()
@@ -49,6 +50,7 @@ def filter_outliersV0(variable_id: int, values: list):
                         print("outlierData replaced values", k - j)
                         for i in range(k, j):
                             values[i] = values[i - 1]
+
 
 def filter_outliers(label, variable_id: int,fullDateTime: list, data_values: list):
     #calcul des références de trie
@@ -82,6 +84,7 @@ def filter_outliers(label, variable_id: int,fullDateTime: list, data_values: lis
             data_values.append(float(df.at[element, 'valeurs']))
 
         return fullDateTime, data_values
+
 
 def resample_data(data_epochtimesms: list, data_values: list, timequantum_duration_in_secondes: int, starting_epochtimems: int, ending_epochtimems: int):
 
@@ -131,6 +134,7 @@ def resample_data(data_epochtimesms: list, data_values: list, timequantum_durati
         #print('*****AAAAAAAAAAAAAAA*****', timemg.epochtimems_to_stringdate(temps),sampled_data_values[count])
         count=count+1
     return sampled_data_epochtimes, sampled_data_values
+
 
 def count_data(data_epochtimesms: list, data_values: list, timequantum_duration_in_secondes: int, starting_epochtimems: int, ending_epochtimems: int):
     counters_dict = dict()
